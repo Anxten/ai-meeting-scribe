@@ -1,6 +1,6 @@
-# 🤖 AI Notulis Rapat Otonom (Autonomous Meeting Scribe)
+# 🤖 AI Notulis Rapat Otonom
 
-Sebuah aplikasi Python yang mampu "mendengarkan" rekaman audio rapat (format `.mp3`, `.m4a`, dll.) dan secara otomatis membuat notulensi yang terstruktur, lengkap dengan ringkasan, daftar keputusan kunci, dan daftar *action items*.
+Sebuah aplikasi Python yang mampu "mendengarkan" rekaman audio rapat dan secara otomatis membuat notulensi yang terstruktur, lengkap dengan ringkasan, keputusan kunci, dan daftar *action items*.
 
 ---
 
@@ -14,8 +14,8 @@ Setiap organisasi menghabiskan waktu berjam-jam setiap minggunya untuk membuat n
 
 Aplikasi ini bekerja dalam dua tahap utama:
 
-1.  **Fase Transkripsi (Speech-to-Text):** Menggunakan model **Whisper (dari OpenAI)** yang dijalankan secara lokal untuk mengubah file audio menjadi transkrip teks mentah dengan akurasi tinggi. Menjalankan model secara lokal menjamin privasi data audio.
-2.  **Fase Analisis & Ekstraksi:** Transkrip mentah tersebut kemudian dianalisis oleh sebuah *chain* **LangChain** yang ditenagai oleh **LLM Groq (model Llama 3)**. AI diberi prompt untuk bertindak sebagai notulis profesional dan mengekstrak informasi terstruktur (Ringkasan, Keputusan Kunci, dan Action Items).
+1.  **Fase Transkripsi (Speech-to-Text):** Menggunakan model **Whisper (dari OpenAI)** yang dijalankan secara lokal untuk mengubah file audio menjadi transkrip teks mentah dengan akurasi tinggi. Menjalankan model secara lokal menjamin privasi data.
+2.  **Fase Analisis & Ekstraksi:** Transkrip mentah tersebut kemudian dianalisis oleh sebuah *chain* **LangChain** yang ditenagai oleh **LLM Groq (model Llama 3)**. AI diberi prompt untuk bertindak sebagai notulis profesional dan mengekstrak informasi terstruktur.
 
 ---
 
@@ -37,7 +37,7 @@ Pastikan **`ffmpeg`** sudah terinstall di sistem Anda. (Panduan untuk Windows: `
 ### Langkah-langkah
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/NAMA_USER_ANDA/ai-meeting-scribe.git](https://github.com/NAMA_USER_ANDA/ai-meeting-scribe.git)
+    git clone [https://github.com/Anxten/ai-meeting-scribe.git](https://github.com/Anxten/ai-meeting-scribe.git)
     cd ai-meeting-scribe
     ```
 
@@ -51,7 +51,6 @@ Pastikan **`ffmpeg`** sudah terinstall di sistem Anda. (Panduan untuk Windows: `
     ```bash
     pip install -r requirements.txt
     ```
-    *(Catatan: Buat file `requirements.txt` terlebih dahulu dengan perintah `pip freeze > requirements.txt`)*
 
 4.  **Buat file `.env` dan masukkan kunci API Groq Anda:**
     ```
@@ -64,9 +63,6 @@ Pastikan **`ffmpeg`** sudah terinstall di sistem Anda. (Panduan untuk Windows: `
 
 1.  Letakkan file audio Anda (misalnya `pidato_jokowi.mp3`) di dalam folder utama proyek.
 2.  Buka file `app.py` dan ubah nama file di dalam variabel `audio_file_path`.
-    ```python
-    audio_file_path = "pidato_jokowi.mp3"
-    ```
 3.  Jalankan aplikasi dari terminal:
     ```bash
     python app.py
@@ -77,3 +73,20 @@ Pastikan **`ffmpeg`** sudah terinstall di sistem Anda. (Panduan untuk Windows: `
 ## ✨ Contoh Hasil
 
 **NOTULENSI RAPAT:**
+
+Berikut adalah notulensi yang jelas dan terstruktur berdasarkan transkrip mentah yang diberikan:
+
+1. Ringkasan Rapat:
+Rapat ini membahas tentang pentingnya memanfaatkan peluang besar yang dimiliki Indonesia untuk menjadi salah satu dari 5 besar ekonomi dunia pada tahun 2045...
+
+2. Keputusan Kunci yang Dibuat:
+
+Mempersiapkan sumber daya manusia dan sektor ekonomi hijau untuk mencapai tujuan menjadi negara maju.
+
+Melakukan hilirisasi untuk mengolah sumber daya alam dan memberikan nilai tambah.
+
+3. Action Items (Tugas & Penanggung Jawab):
+
+Mempersiapkan anggaran perlindungan sosial total...
+
+Melakukan upscaling tenaga kerja melalui balai latihan kerja...
