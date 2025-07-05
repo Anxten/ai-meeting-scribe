@@ -1,6 +1,6 @@
 # 🤖 AI Notulis Rapat Otonom
 
-Sebuah aplikasi Python yang mampu "mendengarkan" rekaman audio rapat dan secara otomatis membuat notulensi yang terstruktur, lengkap dengan ringkasan, keputusan kunci, dan daftar *action items*.
+Sebuah aplikasi Python yang mampu "mendengarkan" rekaman audio rapat dan secara otomatis membuat notulensi yang terstruktur, lengkap dengan ringkasan, daftar keputusan kunci, dan daftar *action items*.
 
 ---
 
@@ -25,6 +25,7 @@ Aplikasi ini bekerja dalam dua tahap utama:
 * **Whisper (OpenAI)**: Untuk transkripsi Audio-ke-Teks secara lokal.
 * **LangChain**: Sebagai framework utama untuk orkestrasi dan interaksi dengan LLM.
 * **Groq API (Llama 3)**: Berperan sebagai "otak" atau LLM yang melakukan analisis teks.
+* **Streamlit**: Untuk membangun antarmuka pengguna (UI) web yang interaktif.
 * **ffmpeg**: Sebagai prasyarat sistem untuk pemrosesan audio oleh Whisper.
 
 ---
@@ -56,21 +57,29 @@ Pastikan **`ffmpeg`** sudah terinstall di sistem Anda. (Panduan untuk Windows: `
     ```
     GROQ_API_KEY='gsk_...'
     ```
+5.  **Download File Audio Sampel:**
+    * Download file audio sampel dari link Google Drive berikut dan letakkan di dalam folder proyek:
+    * [Link Download Pidato Jokowi.mp3](https://drive.google.com/file/d/1syRPnhkVZ4DZ89SzxqXk5gA-xn2mNxzl/view?usp=sharing)
+
 
 ---
 
 ## ▶️ Cara Penggunaan
 
-1.  Letakkan file audio Anda (misalnya `pidato_jokowi.mp3`) di dalam folder utama proyek.
-2.  Buka file `app.py` dan ubah nama file di dalam variabel `audio_file_path`.
-3.  Jalankan aplikasi dari terminal:
+Aplikasi ini dijalankan sebagai aplikasi web interaktif.
+
+1.  Pastikan file audio sampel (misalnya `pidato_jokowi.mp3`) sudah berada di dalam folder utama proyek.
+2.  Jalankan aplikasi dari terminal:
     ```bash
-    python app.py
+    streamlit run dashboard.py
     ```
+3.  Buka browser Anda, akses alamat `localhost` yang diberikan, unggah file audio, dan klik tombol "Mulai Analisis".
 
 ---
 
 ## ✨ Contoh Hasil
+
+Berikut adalah contoh output saat menganalisis pidato kenegaraan:
 
 **NOTULENSI RAPAT:**
 
