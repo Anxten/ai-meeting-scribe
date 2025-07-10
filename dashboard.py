@@ -1,3 +1,5 @@
+# dashboard.py
+
 import streamlit as st
 import os
 from transcriber import transcribe_audio
